@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUTDOOR BOYS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .password-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .password-container input {
+            flex: 1;
+            padding-right: 40px; 
+        }
+        .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+        .message {
+            color: #ff7200;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Rent Wheels</h2>
+            <!-- </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="mine.html">HOME</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="service.html">SERVICE</a></li>
+            
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Search here">
+                <a href="#"><button class="btn">Search</button></a>
+            </div>
+        </div> -->
+        <div class="content">
+            <h1>Rent<br><span>Best Cars</span> <br>at lowest price </h1>
+            <p class="par"> Experience the freedom of exploration with Outdoor Boys,<br> where adventure begins the
+                moment when
+                you step into one of our vehicles.
+            </p>
+
+            <div class="login-page">
+                <div class="form-container">
+                    <div class="form login-form active">
+                        <h2>Sign in</h2>
+                        <form action="login.php" method="POST">
+                            <input type="email" name="email" placeholder="Enter Email Here" required>
+                            <div class="password-container">
+                                <input type="password" name="password" placeholder="Enter Password Here" id="login-password" required>
+                                <i class="fas fa-eye toggle-password" onclick="togglePassword('login-password', this)"></i>
+                            </div>
+                            <button type="submit" class="btnn">Login</button>
+                        </form>
+                        <p class="link">Don't have an account?<br>
+                            <a href="#" onclick="toggleSignUp()">Sign up</a> here
+                        </p>
+                    </div>
+
+                    <div class="form signup-form">
+                        <h2>Sign Up Here</h2>
+                        <form action="register.php" method="POST">
+                            <input type="text" name="fname" placeholder="First Name" required>
+                            <input type="text" name="lname" placeholder="Last Name" required>
+                            <input type="text" name="phone" placeholder="Phone Number" required>
+                            <input type="email" name="signup_email" placeholder="Email Address" required>
+                            <div class="password-container">
+                                <input type="password" name="signup_password" placeholder="Password" id="signup-password" required>
+                                <i class="fas fa-eye toggle-password" onclick="togglePassword('signup-password', this)"></i>
+                            </div>
+                            <button type="submit" class="btnn">Sign Up</button>
+                        </form>
+                        <p class="link">Already have an account?<br>
+                            <a href="#" onclick="toggleSignUp()">Log in</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <script>
+        function togglePassword(inputId, toggleIcon) {
+            const passwordField = document.getElementById(inputId);
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        function toggleSignUp() {
+            const loginForm = document.querySelector('.login-form');
+            const signupForm = document.querySelector('.signup-form');
+            loginForm.classList.toggle('active');
+            signupForm.classList.toggle('active');
+        }
+    </script>
+    <?php if (isset($_GET['message'])): ?>
+        <div class="message"><?php echo htmlspecialchars($_GET['message']); ?></div>
+    <?php endif; ?>
+</body>
+
+</html>
